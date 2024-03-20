@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Play:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--Klassen dark på hela sidan för att lägga till darkmode-->
+<body class="dark">
+    <!--Container som håller i innehållet-->
+    <div class="container">
+        <!--Header-->
+        <header class="main-header">
+            <!--Rubrik, h1 får endast finnas en-->
+            <h1>NASA MARS ROVERS</h1>
+            <!--Toggle för att kunna byta mellan darkmode och ligthmode-->
+            <div class="text-toggle">
+                <p class="dark-light">Toggle light mode</p>
+                <div class="toggle">
+                    <!-- Toggle-switch -->
+                    <label class="switchBtn">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+        <!--Container runt formulär, p, button-->
+        <div class="box">
+            <!--Formulär-->
+            <form action="" id="spacename-form">
+                <!--Etikett ovan input-->
+                <label for="name">Choose Your Space Name</label>
+                <p>Space Name (must be 3 character)</p>
+                <!--Här skriver du i inputfält-->
+                <input type="text" id="name" placeholder="Pick your space name">
+                <!--Container för att stylea knapp och lägga den på bestämd plats-->
+                <div class="btn-container">
+                    <!--Knapp-->
+                    <button type="submit" disabled id="btn-submit">Show my name</button>
+                </div>
+            </form>
+            <!--Välkommentext, klass och id-->
+            <p class="result" id="resultelement"></p>
+        </div>
+        <!--Main som håller i cards-->
+        <main id="mars-container">
+            <!--TA BORT DETTA-->
+            <!-- <article>
+                <h2>Opportunity</h2>
+                <div class="mars-pic" id="mars1">
+                    <img src="img/Skärmavbild 2024-02-20 kl. 10.43.43.png" alt="">
+                </div>
+                <h3>2024-02-29</h3>
+            </article>
+            <article>
+                <h2>Opportunity</h2>
+                <div class="mars-pic" id="mars2">
+                    <img src="img/Skärmavbild 2024-02-20 kl. 10.43.43.png" alt="">
+                </div>
+                <h3>2024-02-29</h3>
+            </article>
+            <article>
+                <h2>Opportunity</h2>
+                <div class="mars-pic" id="mars3">
+                    <img src="img/Skärmavbild 2024-02-20 kl. 10.43.43.png" alt="">
+                </div>
+            </article>
+            <article>
+                <h2>Opportunity</h2>
+                <div class="mars-pic" id="mars4">
+                    <img src="img/Skärmavbild 2024-02-20 kl. 10.43.43.png" alt="">
+                </div>
+                <h3>2024-02-29</h3>
+            </article> -->
+            <!--Klass och id för när det inte finns bilder att visa-->
+            <p class="nopictures" id="nopicturesfound"></p>
+        </main>
+    </div>
+    <!--Länka in scriptfil-->
+    <script src="script.js"></script>
+</body>
+</html>

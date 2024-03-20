@@ -1,0 +1,370 @@
+//Färger i variabler
+$darkmode-text-color: rgb(21, 209, 87); 
+$primary-text-color: rgb(255, 255, 255); 
+
+$darkmode-backgroundcolor: #212121;
+$primary-backgroundcolor: rgb(208, 202, 202);
+
+$darkmode-color-purple: #19171e;
+$primary-color: #ff00a6;
+
+$darkmode-color-toggle-on:  rgb(21, 209, 87);
+$primary-color-toggle-off:#ff84d4;
+$slider: white;
+
+$primary-color-button: rgb(21, 209, 87);
+$backgroundcolor-grey: grey;
+$backgroundcolor-darkgrey: #0B071299;
+$text-color-grey: rgb(174, 172, 172);
+
+$border-color:rgb(255, 0, 0);
+
+//Font
+$font: "Play", sans-serif;
+
+*,html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    color:$primary-text-color;
+    font-family: $font;
+    background-color: $primary-backgroundcolor;
+}
+//Bild, satt till full storlek, ska ta upp hela sitt utrymme
+img{
+    width: 100%;
+    display: block;
+}
+//Stilar för "submit"-knappen 
+button[type="submit"] {
+    // Inre marginal
+    padding: 0.75rem;
+    // Bredden på knappen
+    width: 9.125rem;
+    // Ingen ram
+    border: none;
+    // Rundade hörn
+    border-radius: 0.625rem;
+    // Bakgrundsfärgen
+    background-color: $primary-color-button;
+    //textfärg
+    color: $primary-text-color;
+    //Stilar för inaktiva element (disabled state)
+    &:disabled{
+        background-color: $backgroundcolor-grey;
+        color: $text-color-grey;
+        //får en stoppspade
+        cursor: not-allowed;
+    }
+}
+.container{
+    //Centrera innehållet
+    margin: auto;
+    background-image: url(img/history-in-hd-e5eDHbmHprg-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Bilden rör sig inte när användaren scrollar sidan */
+    width: 100%;
+    .main-header{
+        //Aktivera flexbox, centrera innehållet, bakgrundsfärg, lignera innehåll vertikalt
+        background-color: $primary-color;
+        display: flex;
+        // max-width: 1366px;
+        margin: auto;
+        h1{
+            // Flex-item som inte växer eller krymper, med en beräknad bredd
+            flex: 0 0 calc(50% - 1rem);
+            // Storlek på texten
+            font-size: 2.25rem;
+            // Vänster padding
+            padding-left: 1rem;
+            // Nedre padding
+            padding-bottom: 1.0625rem;
+            // Övre padding
+            padding-top: 1.125rem;
+            // Mediaregel som ökar vänster padding vid skärmstorlekar över 524px
+            @media (min-width: 524px) {
+                padding-left: 5.1875rem;
+            }
+        }
+    }
+    //Stilar för en container som håller en text-toggling funktion
+    .text-toggle{
+        // Använder flexbox
+        display: flex;
+        // Placerar innehållet i slutet av container
+        justify-content: flex-end;
+        // Flex-item som inte växer eller krymper, med en beräknad bredd
+        flex: 0 0 calc(50% - 1.125rem);
+        // Centrerar innehållet vertikalt
+        padding-top: 1.125rem;  
+        p{
+            // Luft höger
+            padding-right: 1rem;
+        }
+         //Stilar för en toggle-switch
+        .toggle{
+            // Storlek på texten
+            font-size: 0.875rem;
+           // Stilar för switch-knappen
+            .switchBtn {
+                position: relative;
+                display: inline-block;
+                width: 3.5625rem;
+                height: 1.75rem;
+            }
+            // Göm checkboxen 
+            .switchBtn input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            //Stil för slider
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: $primary-color-toggle-off;
+                // Animationstid
+                transition: .4s;
+                //Rundade hörn
+                border-radius: 2.125rem;
+            }
+            //Stilar för slider-knappen före aktivering
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 1.25rem;
+                width: 1.25rem;
+                left: 0.25rem;
+                bottom: 0.25rem;
+                background-color: $slider;
+                // Animationstid
+                transition: .4s;
+                //Gör den helt rund
+                border-radius: 50%;
+            }
+            //Ändrar bakgrundsfärgen på slider när input är markerad (checked)
+            input:checked + .slider {
+                background-color: $darkmode-color-toggle-on;
+            }
+            // Flyttar slider-knappen när den är aktiverad (checked)
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+        }
+    }
+    //Definierar stilen för .box-elementet
+    .box{
+        background-color: $primary-color;
+        // Maxbredden för boxen
+        max-width: 590px;
+        // Centrerar boxen horisontellt 
+        margin: auto;
+        // Övre marginal
+        margin-top: 16.6875rem;
+        // Nedre marginal
+        margin-bottom: 13.1875rem;
+        // Inre marginaler
+        padding: 2rem 3.5rem 3.5rem 2.5625rem;
+        // Rundade hörn
+        border-radius: 2rem;
+        //Stilar för formulär inom .box 
+        width: calc(100% - 2rem); // Subtraherar 1rem marginal på varje sida
+        form {
+            // Använder flexbox
+            display: flex;
+            // Organiserar barn vertikalt
+            flex-direction: column;
+            p{
+                // Textstorleken för paragrafer
+                font-size: 1.125rem;
+            }
+        }
+        //Gemensamma stilar för etiketter och paragrafer
+        label, p {
+            // Sätter en nedre marginal
+            margin-bottom: 0.625rem;
+            // Textstorlek
+            font-size: 2.25rem;
+        }  
+        //Stilar för textinputfält
+        input[type="text"] {
+            // Inre marginal
+            padding: 1.0625rem;
+            // Tar upp hela bredd
+            display: block;  
+            // width: 31.25rem;
+            // Nedre marginal
+            margin-bottom: 2.8125rem;
+            // Rundade hörn
+            border-radius: 0.3125rem;
+            // Rambredd och färg
+            border: 1px solid #ccc;
+            //Särskild stil för fokus på inputfältet
+            &.focusBorder{
+                //För att ta bort default focus
+                outline: none;
+                // Sätter en anpassad ram
+                border: 2px solid $border-color;
+            }
+        }
+         //Stilar för knappkontainern inom .box
+         .btn-container{
+            // Använder flexbox
+            display: flex;
+            // Justerar innehållet till höger
+            justify-content: right;
+            }
+     //Definierar en nyckelbildsanimation vid namn 'pixelShake'
+    @keyframes pixelShake {
+        //Börjar och slutar animationen utan förskjutning
+        0%, 100% { transform: translate(0, 0); }
+        //Flyttar elementet diagonalt uppåt till vänster
+        10% { transform: translate(-5px, -5px); }
+        //Flyttar elementet diagonalt nedåt till höger
+        20% { transform: translate(5px, 5px); }
+        //Flyttar elementet diagonalt nedåt till vänster
+        30% { transform: translate(-5px, 5px); }
+        //Flyttar elementet diagonalt uppåt till höger
+        40% { transform: translate(5px, -5px); }
+        //Återupprepar rörelse som vid 10%
+        50% { transform: translate(-5px, -5px); }
+        //Återupprepar rörelse som vid 20%
+        60% { transform: translate(5px, 5px); }
+        //Återupprepar rörelse som vid 30%
+        70% { transform: translate(-5px, 5px); }
+        //Återupprepar rörelse som vid 40%
+        80% { transform: translate(5px, -5px); }
+        //Återupprepar rörelse som vid 50%
+        90% { transform: translate(-5px, -5px); }
+    }
+    //Tillämpar animationen 'pixelShake' på klassen 
+        .result{
+            // Textstorlek för resultatmeddelanden
+            font-size: 1.5rem;
+            padding-top: 1rem;
+            //Gör elementet blocknivå men tillåter det att ha en definierad bredd/höjd
+            display: inline-block;
+            animation: pixelShake 0.5s ease-in-out 10; /* 10 iterationer, totalt 5 sekunder */
+        }
+    }
+    //Stilar för huvudinnehållet
+    main{
+        // Använder flexbox för layout
+        display: flex;
+        // Tillåter innehållet att flöda över till nästa rad
+        flex-wrap: wrap ;
+        // Centrerar innehållet
+        justify-content: center;
+        // Mellanrum mellan elementen
+        // gap: 2.125rem;
+        // Maxbredden för main-elementet
+        max-width: 1366px;
+        // Centrerar elementet horisontellt
+        margin: auto;
+         // Nedre luft
+        padding-bottom: 16.6875rem;
+        //Media queries för skärmstorlekar större än 1024px
+        @media (min-width: 1024px) {
+        // Vänster inre marginal
+        padding-left: 6.125rem;
+        // Höger inre marginal
+        padding-right: 6.125rem;
+        } 
+    }
+    article{
+        background-color: $primary-color;
+        // Flex-grow, flex-shrink och flex-basis värden för att tillåta artiklar att växa och krympa baserat på innehållet, med en startpunkt på 100% av tillgänglig bredd
+        flex: 1 1 100%;
+        // Detta skapar ett mellanrum runt varje kort
+        margin: 1rem; 
+        //Aktiverar flexbox
+        display: flex;
+        //Centrerar innehållet
+        justify-content: center;
+        //Ny rad om det inte finns plats
+        flex-wrap: wrap;
+        padding: 1rem;
+        // För paddor: 2 artiklar per rad
+        border-radius: 2rem;
+        @media (min-width: 768px) {
+            // Subtraherar margin från bredden för att få plats med 2
+            flex: 1 1 calc(50% - 2rem); 
+        }
+        
+        // För desktop: 4 artiklar per rad
+        @media (min-width: 1024px) {
+             // Subtraherar margin från bredden för att få plats med 4 
+             flex: 1 1 calc(25% - 2rem);
+        }
+        h2{
+        //Luft övre
+        padding-top: 1.5rem;
+        //Luft undre
+        padding-bottom: 1.5rem;
+        }
+        h3{
+        //   Luft över under
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        }
+    }
+  //@keyframes-definition för blink-animationen
+@keyframes blink {
+    //Startpunkt: helt opak
+    0% { opacity: 1; }
+    //Halvvägs: helt transparent
+    50% { opacity: 0; }
+    //Slutpunkt: återgår till helt opak
+    100% { opacity: 1; }
+  }
+  
+  //Använder klassen .nopictures
+  .nopictures{
+    //Ställer in stor textstorlek
+    font-size: 3rem;
+    //Tillämpar blink-animationen med oändlig upprepning
+    animation: blink 1s linear infinite;
+    //Lägger till en textskugga för visuell djup
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+//Stilar för mörkt läge
+.dark{
+    // Bakgrundsfärgen i mörkt läge
+    background-color: $darkmode-backgroundcolor;
+    // Textfärgen i mörkt läge
+    color: $darkmode-text-color;
+    // Anpassar färger för huvudrubriken i mörkt läge
+    .main-header{
+        background-color: $darkmode-color-purple;
+    }
+    //Anpassar stilar för box i mörkt läge
+    .box{
+        // Bakgrundsfärg för box
+        background-color: $darkmode-color-purple;
+        button{
+            // Bakgrundsfärg för knappar
+            background-color: $darkmode-backgroundcolor;
+            // Textfärg för knappar
+            color: $darkmode-text-color;
+            &:disabled{
+                // Bakgrundsfärg för inaktiverade knappar
+                background-color: $backgroundcolor-darkgrey;
+                // Textfärg för inaktiverade knappar
+                color: $text-color-grey;
+            }   
+        }
+    }
+    //Anpassar artiklarnas färg i mörkt läge
+    article{
+        // Bakgrundsfärg för artiklar
+        background-color: $darkmode-color-purple;
+    }
+}
